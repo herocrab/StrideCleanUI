@@ -4,10 +4,12 @@ This is a sample project for rendering clean UI in your game as well as in game 
 
  <img src="CleanGraphicsCompositor.png">
 
-1) Modify the graphics compositor in the Editor section to begin with a SceneRendererCollection. Make the first item a new SharedForwardRenderer with NO Transparent stage selected. Ensure this entry is passed to Post FX (because you'll want to see those in game studio).
+1) Modify the graphics compositor in the Editor section to begin with a SceneRendererCollection. Make the first item connect to a new SharedForwardRenderer with NO Transparent stage selected. Ensure this entry is passed to Post FX (because you'll want to see those in game studio).
 2) Add another entry to the Editor section to do a single stage renderer for just the transparent layer. This will render your UI clean with no Post FX in the editor.
 
  <img src="EditorRenderer.png">
+ 
+ <img src="CustomSharedRenderer.png">
 
 3) Do something similar for the Game section, though this time use CameraRenderers. These allow you to use the RenderGroupMask functionality and split groups into separate renderers.
 4) Use a higher group number (RenderGroup31 below) to isolate your UIComponents. Then have the second CameraRenderer handle just that group with a SingleStageRenderer and the transparent stage.
