@@ -6,7 +6,7 @@ This is a sample project for rendering clean UI in your game as well as in game 
 
 1) Modify the graphics compositor in the Editor section to begin with a SceneRendererCollection. 
 
-2) Make the first item a new SharedForwardRenderer with NO Transparent stage selected. Don't use the existing SharedForwardRenderer. Ensure this entry is passed to Post FX (because you'll want to see those in game studio).
+2) Make the first item a new SharedForwardRenderer with NO Transparent stage selected. Don't use the existing SharedForwardRenderer. Ensure this SharedForwardRenderer has an entry for Post FX (because you'll want to see those in game studio for the other stages).
 
 3) Add another entry to the Editor section as a SingleStageRenderer for just the transparent stage. This will render your UI with no Post FX in the editor.
 
