@@ -1,6 +1,6 @@
 # StrideCleanUI
 
-This is a sample project for rendering clean UI in your game as well as while working in game studio. The default graphics compositor for Stride renders UIComponents in a Shared Renderer with Post FX enabled... this makes UI look horrid. There are several things you can do to clean this up. This is the simplest way I've found to address this default behavior.
+This is a sample project for rendering clean UI in your game as well as in game studio. The default graphics compositor for Stride renders UIComponents in a Shared Renderer with Post FX enabled... this makes UI look horrid. There are several things you can do to clean this up. This is the simplest way I've found to address this default behavior.
 
  <img src="CleanGraphicsCompositor.png">
 
