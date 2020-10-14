@@ -24,9 +24,9 @@ This is a sample project for rendering clean UI in your game as well as in game 
  
  6) The above items should render both the Editor and your Game with clean UI, both outside of Post FX. 
  
- 7) You can do quite a bit more here with CameraRenderers and RenderTextures to ensure UIComponents are at the correct "level" or "depth" in your scene (Menu, HUD, Player Health, etc). Having a camera render only UI to render texture and then using ImageElements is a perfect work around for this, you'll have to clear the texture though.
+ 7) You can do quite a bit more here with CameraRenderers and RenderTextures to ensure UIComponents are at the correct "level" or "depth" in your scene (Menu, HUD, Player Health, etc). Having a camera render only specific RenderGroups to a RenderTexture and then using ImageElements as fulls screen UIPages is a perfect work around for this, you may have to clear the texture though which requires using CommandList. I've found this works better than playing with order of items in Game Studio.
  
- 8) For in-depth UI/menu work, it has been best for me to consolidate all UI into a single UIPage with multiple Grids and or Modals and Enable them in code as necessary. This way you can use the Z depth parameter on the UI components directly, though this doesn't work for UIComponents in 3d world space, for that use the approach mentioned in #6.
+ 8) For in-depth UI/menu work, it has been best for me to consolidate all UI into a single UIPage with multiple Grids and or Modals and Enable them in code as necessary. This works much better than having multiple UIComponents with their own UIPage in a scene. Using a single UIPage, you can use the Z depth parameter on the UI components directly per Canvas or Grid. This approach doesn't work for UIComponents in 3d world space, for that use the approach mentioned in #7.
  
  Results:
  
