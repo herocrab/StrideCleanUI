@@ -202,7 +202,7 @@ SharedRenderers:
             Color: {R: 0.40392157, G: 0.4117647, B: 0.43529412, A: 1.0}
         LightProbes: true
         OpaqueRenderStage: ref!! 0b6b7ab3-e854-4998-b81a-c0a8b9c5fbbb
-        TransparentRenderStage: ref!! b42c73eb-c31b-4634-80c2-4764892283b4
+        TransparentRenderStage: null
         ShadowMapRenderStages:
             8b41f066485734fb8739915750b8d6ed: ref!! ae096e75-37b6-42c8-97b3-2ce87aaf19a3
             87ea410be511ab7408506d9746ea4ec9: ref!! 7d1465a9-9590-4fdc-b8ce-cebc9e6dc934
@@ -240,6 +240,5 @@ Editor*: !Stride.Rendering.Compositing.SceneRendererCollection,Stride.Rendering
         03ad04ab769aa0abb4810782d199e0ba: !Stride.Rendering.Compositing.ForwardRenderer,Stride.Engine ref!! 6fab532e-4fcb-4617-a6a6-642d0a242199
         04e015c0de1bdec770011dea44c90463: !Stride.Rendering.Compositing.SingleStageRenderer,Stride.Rendering
             Id: 6cc33f38-114e-4428-bbbe-4a19d030afb8
-            Enabled: false
             RenderStage: ref!! b42c73eb-c31b-4634-80c2-4764892283b4
 BlockPositions: {}
