@@ -30,7 +30,7 @@ This is a sample project for rendering clean UI in your game as well as in game 
  
  Results:
  
-  <img src="DefaultEditor.png">
+  <img src="DefaultEditor_0.png">
   
   <img src="DefaultUIRendering.png">
   
