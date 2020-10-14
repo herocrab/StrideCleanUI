@@ -1,0 +1,11 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideCleanUI.Windows", "StrideCleanUI.Windows\StrideCleanUI.Windows.csproj", "{44251EAA-B749-46E1-B8CE-68A0B7E4F867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrideCleanUI", "StrideCleanUI\StrideCleanUI.csproj", "{DCA3800E-2B2C-4BE5-8DBA-8B6DCDE417C9}"
+EndProject
+Global
+EndGlobal
