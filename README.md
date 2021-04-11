@@ -1,6 +1,6 @@
 # StrideCleanUI
 
-**A better way to do this is, instead of using the Single Stage Renderer, create a separate Forward Renderer with no PostFX and send only the UI RenderGroup to it. This way you don't isolate the Trasnparent Render Stage from the pipeline (which has unintended consequence of making transparent maps (stencil maps, etc) unavailable to shaders. I will update this eventually in this repo, but wanted to put this here for anyone finding it.
+### A better way to do this is, instead of using the Single Stage Renderer, create a separate Forward Renderer with no PostFX and send only the UI RenderGroup to it. This way you don't isolate the Trasnparent Render Stage from the pipeline (which has unintended consequence of making transparent maps (stencil maps, etc) unavailable to shaders. I will update this eventually in this repo, but wanted to put this here for anyone finding it.
 
 This is a sample project for rendering clean UI in your game as well as in game studio. The default graphics compositor for Stride renders UIComponents in a Shared Renderer with Post FX enabled... this makes UI look horrid. There are several things you can do to clean this up. This is the simplest way I've found to address this default behavior.
 
