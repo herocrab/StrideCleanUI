@@ -1,47 +1,42 @@
 # StrideCleanUI
 
-### A better way to do this is, instead of using the Single Stage Renderer, create a separate Forward Renderer with no PostFX and send only the UI RenderGroup to it. This way you don't isolate the Trasnparent Render Stage from the pipeline (which has unintended consequence of making transparent maps (stencil maps, etc)) unavailable to shaders. I will update this repo eventually, but wanted to put this note here for anyone finding/using it.
-
-This is a sample project for rendering clean UI in your game as well as in game studio. The default graphics compositor for Stride renders UIComponents in a Shared Renderer with Post FX enabled... this makes UI look horrid. There are several things you can do to clean this up. This is the simplest way I've found to address this default behavior.
+This is a sample project for rendering clean UI in your game as well as in game studio. The default graphics compositor for Stride renders UIComponents in a Shared Renderer with Post FX enabled... this drastically modifies ui. Below is the simplest way I've found to address this behavior without impacting any other pipeline issues. I would recommend not changing anything with the default Transparent stage, as modifying this can impact shaders later on.
 
 ## An example:
 
- <img src="ExampleUi.png">
+ <img src="example.png">
 
 The compositor...
 
- <img src="CleanGraphicsCompositor.png">
+ <img src="compositor.png">
 
-1) Modify the graphics compositor in the Editor section to begin with a SceneRendererCollection. 
+1) Create a new render stage called "UiStage." This will be used later in the graphics compositor (to order the UI rendering last).
 
-2) Make the first item a new SharedForwardRenderer with NO Transparent stage selected. Don't use the existing SharedForwardRenderer. Ensure this SharedForwardRenderer has an entry for Post FX (because you'll want to see those in game studio for the other stages).
+ <img src="compositor_stages.png">
 
-3) Add another entry to the Editor section as a SingleStageRenderer for just the transparent stage. This will render your UI with no Post FX in the editor.
+2) Modify the graphics compositor in the Editor entry point to include a SceneRendererCollection. 
+3) Leave the default shared forward renderer.
+4) Add another entry to the Editor section as a SingleStageRenderer for the newly created "UiStage" stage.
 
- <img src="EditorRenderer.png">
-
- <img src="CustomSharedRenderer.png">
-
-4) Do something similar for the Game section, though this time use CameraRenderers. These allow you to use the RenderGroupMask functionality and split groups into separate renderers.
-
-5) Use a higher group number (RenderGroup31 below) to isolate your UIComponents. Then have the second CameraRenderer handle just that group with a SingleStageRenderer and the transparent stage.
-
- <img src="GameRenderer_0.png">
+ <img src="compositor_property_1.png">
  
- <img src="GameRenderer_1.png">
+  <img src="compositor_property_2.png">
+
+5) Do something similar for the Game entry point, though this time use CameraRenderers. These allow you to use the RenderGroupMask functionality and split groups into separate renderers.
+6) Use a higher group number (RenderGroup31 below) to isolate your UIComponents. Then have the second CameraRenderer handle just that group with a SingleStageRenderer and the "UiStage" stage.
+
+ <img src="compositor_configuration.png">
  
- 6) The above items should render both the Editor and your Game with clean UI, both outside of Post FX. 
+7) Go to your Entities (in the scene) and select the UIComponent, change the RenderGroup to RenderGroup31).
+8) The above items should render both the Editor and your Game with clean UI, both with no Post FX applied
+9) After working quite a bit with Stride UI, I can see that it is quite capable. I would personally recommend making all game UI a member of a single UI page and use Grids to isolate the different functionality (Hud, Menu, etc). This way also you can take advantage of Grid zDepth and layering to control what is in "front" and what is in "back."
  
- 7) You can do quite a bit more here with CameraRenderers and RenderTextures to ensure UIComponents are at the correct "level" or "depth" in your scene (Menu, HUD, Player Health, etc). Having a camera render only specific RenderGroups to a RenderTexture and then using ImageElements as fulls screen UIPages is a perfect work around for this, you may have to clear the texture though which requires using CommandList. I've found this works better than playing with order of items in Game Studio.
+Results:
  
- 8) For in-depth UI/menu work, it has been best for me to consolidate all UI into a single UIPage with multiple Grids and or Modals and Enable them in code as necessary. This works much better than having multiple UIComponents with their own UIPage in a scene. Using a single UIPage, you can use the Z depth parameter on the UI components directly per Canvas or Grid. This approach doesn't work for UIComponents in 3d world space, for that use the approach mentioned in #7.
- 
- Results:
- 
-  <img src="DefaultEditor_0.png">
+  <img src="default_editor.png">
   
-  <img src="DefaultUIRendering.png">
+  <img src="default_ui.png">
   
-  <img src="ModifiedEditor.png">
+  <img src="modified_editor.png">
   
-  <img src="ModifiedUIRendering.png">
+  <img src="modified_ui.png">
