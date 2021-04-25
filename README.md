@@ -13,15 +13,12 @@ The compositor...
 1) Create a new render stage called "UiStage." This will be used later in the graphics compositor (to order the UI rendering last).
 
  <img src="compositor_stages.png">
+ <img src="compositor_property_1.png">
+ <img src="compositor_property_2.png">
 
 2) Modify the graphics compositor in the Editor entry point to include a SceneRendererCollection. 
 3) Leave the default shared forward renderer.
 4) Add another entry to the Editor section as a SingleStageRenderer for the newly created "UiStage" stage.
-
- <img src="compositor_property_1.png">
- 
-  <img src="compositor_property_2.png">
-
 5) Do something similar for the Game entry point, though this time use CameraRenderers. These allow you to use the RenderGroupMask functionality and split groups into separate renderers.
 6) Use a higher group number (RenderGroup31 below) to isolate your UIComponents. Then have the second CameraRenderer handle just that group with a SingleStageRenderer and the "UiStage" stage.
 
