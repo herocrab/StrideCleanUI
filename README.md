@@ -13,12 +13,14 @@ The compositor...
 1) Create a new render stage called "UiStage." This will be used later in the graphics compositor (to order the UI rendering last). For this stage, assign only RenderGroup31 to it.
 
 On the left side:
- <img src="compositor_stages.png">
+
+<img src="compositor_stages.png">
  
 On the right side:
- <img src="compositor_property_0.png">
- <img src="compositor_property_1.png">
- <img src="compositor_property_2.png">
+
+<img src="compositor_property_0.png">
+<img src="compositor_property_1.png">
+<img src="compositor_property_2.png">
 
 2) Modify the graphics compositor in the Editor entry point to include a SceneRendererCollection. 
 3) Leave the default shared forward renderer.
