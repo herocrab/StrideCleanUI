@@ -1,6 +1,6 @@
 # StrideCleanUI
 
-This is a sample project for rendering clean UI in your game as well as in game studio. The default graphics compositor for Stride renders UIComponents in a Shared Renderer with Post FX enabled... this drastically modifies ui. Below is the simplest way I've found to address this behavior without impacting any other pipeline issues. I would recommend not changing anything with the default Transparent stage, as modifying this can impact shaders later on.
+This is a sample project for rendering clean UI in your game as well as in game studio. The default graphics compositor for Stride renders UIComponents in a Shared Renderer with Post FX enabled... this drastically modifies the appearance of ui, making it dim or blurry. Below is the simplest way I've found to address this behavior without impacting any other pipeline issues. I would recommend not changing anything with the default Transparent stage, as modifying this can impact shaders later on.
 
 ## An example:
 
